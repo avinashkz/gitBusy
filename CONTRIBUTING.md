@@ -1,7 +1,7 @@
 # Contributing
 
 ## Introduction
-The _git_busy_ package is developed under Github only. All contributions to the package must be made through a pull request with one of the project maintainers assigned. In this manner, no more than one maintainer is spending time trying to address the issue. Maintainers are welcome to forward the issue to another maintainer under their discretion. If the contribution is not code, a Git issue may be raised.
+The _gitBusy_ package is developed under Github only. All contributions to the package must be made through a pull request with one of the project maintainers assigned. In this manner, no more than one maintainer is spending time trying to address the issue. Maintainers are welcome to forward the issue to another maintainer under their discretion. If the contribution is not code, a Git issue may be raised.
 
 Making contribution implies your agreement with the [code of conduct](CONDUCT.md)
 

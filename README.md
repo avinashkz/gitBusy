@@ -1,2 +1,2 @@
-# git_busy
+# gitBusy
 Github API Wrapper

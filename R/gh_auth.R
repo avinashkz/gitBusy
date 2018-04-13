@@ -9,6 +9,6 @@ app <- oauth_app("github",
                    secret = secret)
 gh_token <- oauth2.0_token(oauth_endpoints("github"), app)
 gtoken <- config(token = gh_token)
-#options(httr_oauth_cache=T)
+options(httr_oauth_cache=F)
 return(gtoken)
 }

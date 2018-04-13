@@ -19,6 +19,6 @@ test_that("Check if output is valid",{
   gtoken <- gh_auth()
   org <- "UBC-MDS"
 
-  expect_that(str(organization_members(org)), prints_text("List"))
+  expect_that(organization_members(org), prints_text("List"))
 
 })

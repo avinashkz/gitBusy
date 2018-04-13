@@ -1,4 +1,4 @@
-#' @export
+
 library(httr)
 library(dplyr)
 library(purrr)
@@ -15,6 +15,7 @@ source('R/gh_auth.R')
   return(bind_cols(name  = x$name, link = x$html_url, language = x$language, collaborators = collaborators))
 }
 
+#' @export
 org_repos <- function(id){
   #Function returns the the name, link and language for all the repositories in the organization.
   org <- GET(paste("https://api.github.com/orgs/", id, "/repos", sep = ""), gtoken)

@@ -1,4 +1,3 @@
-#' @export
 library(httr)
 library(dplyr)
 library(purrr)
@@ -6,7 +5,7 @@ source('R/user_preferences.R')
 source('R/gh_auth.R')
 
 
-
+#' @export
 organization_members <- function(organization){
   #Reads in the Organization name on GitHub
   #Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.

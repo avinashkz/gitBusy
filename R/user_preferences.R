@@ -1,10 +1,10 @@
-#' @export
 library(dplyr)
 library(purrr)
 library(ggplot2)
 library(forcats)
 source('R/gh_auth.R')
 
+#' @export
 user_preferences <- function(id){
   #The function reads in the ID of a user and returns the a dataframe and ggplot item of the languages used by the user.
   gtoken <- gh_auth()

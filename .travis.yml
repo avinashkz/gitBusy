@@ -1,17 +1,13 @@
-# language: r
-# sudo: false
-# cache: packages
-# dist: trusty
-
-# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
-
 language: r
+before_script:
+  - git config --global user.email "zi.avi7@gmail.com"
+  - git config --global user.name "Travis-CI"
+after_script:
+  - git config credential.helper "store --file=.git/credentials"
+  - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 warnings_are_errors: false
 install:
-  - Rscript Installations.R
-
-r_packages:
-  - covr
-
-after_success:
-  - Rscript -e 'library(covr); codecov()'
+- Rscript Installations.R
+env:
+  global:
+    secure: bidAja14b0PPB4c1mhQMmlo8HujdUPIvegB5KPeQzkK9Ev8Wi07kr8s4j6jAWleJIUbmsmDJJaSFIrEFZRrH1lCQLWEuhEhl7Whm5TAstW+ar8cqj47NiQuQ3GP1+fzV+ehK6WfdADrrTug7AKysiBggFYSOVcFlXAgUBXmZy8sAScwmgGFyJ3SDPEyixb6TGZurl9q+zrXknLN6jEOlZs9UNQz5ULZWrN6/v3PR4lrmXvCGkn1stKaP/0jwaAuNuVQ9XoSec2s69Jiv+tz7hcNSHODYm9VNWMGuv/qyUNYh2j/7k/37FdE9E/UOiFSxab4Fw0SGTEHECE8TnVV3sF2E9N2lpssm8Cyl8zj9HTNp7xWAomZXCzr7lDwHdw5B2uDeIfI4C+3Xvj/K2TsTPvwSO/O3URmW0YHdT61wZWlCpQVMKtJfEUQAogxcIfvIEREpIUhTZj6Xk1A1HAcBY55PTbGte8haWpvaDGJnb1QutUBBN518UfDd4ugTSxvfarlDmabD5vz+yiXA3v69JIvBBWYeWtHnAAXRrCxTyk+48LVddfTKMrJavmB1uDrHX6sMXAvKodC8AJEZ/MpX+NclXfsGjEPQw/yfXhNFLMs2qTPoZ5PueW/84LhydCqzU8Aop4ZwSenKDZ83SA6vMhyISQQ4ZtDJNkO0N46XQaQ=

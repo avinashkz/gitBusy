@@ -7,8 +7,6 @@ Authors@R: c(
     person("Ivan", "Despot", , email="idespot17@gmail.com", role=c("aut", "cre")),
     person("Avinash", "Prabhakaran", , email="avinash.prabhakaran@alumni.ubc.ca", role=c("aut"))
     )
-
-
 Description: Github API Wrapper
 Depends: R (>= 3.4.3), httpuv, httr, dplyr, purrr, ggplot2, forcats, glue
 License: MIT

@@ -1,11 +1,19 @@
 Package: gitBusy
-Title: What the Package Does (one line, title case)
+Title: Github API Wrapper
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-Depends: R (>= 3.4.3)
-License: What license is it under?
+Authors@R: c(
+    person("Abishek", "Murali", , email="abimur@gmail.com", role=c("aut")),
+    person("Siddharth", "Arora", , email="sidd_99@hotmail.com", role=c("aut")),
+    person("Ivan", "Despot", , email="idespot17@gmail.com", role=c("aut", "cre")),
+    person("Avinash", "Prabhakaran", , email="avinash.prabhakaran@alumni.ubc.ca", role=c("aut"))
+    )
+Description: Github API Wrapper
+Depends: R (>= 3.4.3), httpuv, httr, dplyr, purrr, ggplot2, forcats, glue
+License: MIT
 Encoding: UTF-8
 LazyData: true
-Suggests: testthat
+Suggests: testthat, 
+	knitr, 
+	rmarkdown
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr

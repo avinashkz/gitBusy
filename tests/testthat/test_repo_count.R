@@ -10,11 +10,11 @@ test_that("check if the error message is correct",{
 
 #check valid output
 test_that('the output has two elements only',{
-  expect_equal(repo_count("avinashkz", TRUE),32)
+  expect_equal(repo_count("avinashkz"),32)
 })
 
 test_that("Check if output is valid",{
-  output <- repo_count("sarora", TRUE)
+  output <- repo_count("avinashkz")
   expect_true(typeof(output)=='integer')
 
 })

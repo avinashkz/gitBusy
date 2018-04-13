@@ -9,11 +9,11 @@ repo_count <- function(id, auth = FALSE){
   if(auth)
   {
     gtoken <- gh_auth()
-    a <- GET(paste(url,id,sep=""))
+    a <- GET(paste(url,id,sep=""), gtoken)
     }
   else
   {
-    a <- GET(paste(url,id,sep=""), gtoken)
+    a <- GET(paste(url,id,sep=""))
     }
   text <- content(a, "parsed")
   if(is.null(text$public_repos)){

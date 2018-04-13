@@ -1,5 +1,12 @@
 context('repo_count.R')
 
+library(httr)
+library(glue)
+library(dplyr)
+library(purrr)
+library(ggplot2)
+library(forcats)
+
 #check valid input
 test_that("check if input is in correct format",{
   expect_error(repo_count("avinashkzz"), 'User avinashkzz Not Found on GitHub',fixed=TRUE)

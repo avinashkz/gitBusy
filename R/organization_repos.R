@@ -1,10 +1,13 @@
-require(httr)
-require(dplyr)
-require(purrr)
+#' @export
+library(httr)
+library(dplyr)
+library(purrr)
+source('R/gh_auth.R')
 
 .rogue <- function(x) {
   #Return the details of all the public repos in an organization
   #Returns repo name + link + language + collaborators
+  gtoken <- gh_auth()
   collab <- GET(x$contributors_url, gtoken)
   text <- content(collab)
   a <- text %>% map_chr(function(z) return(z$login))

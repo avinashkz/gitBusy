@@ -3,12 +3,11 @@ library(glue)
 source('R/gh_auth.R')
 
 #' @export
-repo_count <- function(id, auth = FALSE){
+repo_count <- function(id, auth = TRUE, gtoken){
   #Return the number of Pulic Repositories for an ID
   url <- 'https://api.github.com/users/'
   if(auth)
   {
-    gtoken <- gh_auth()
     a <- GET(paste(url,id,sep=""), gtoken)
     }
   else

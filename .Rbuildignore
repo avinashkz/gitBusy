@@ -2,5 +2,4 @@
 ^\.Rproj\.user$
 ^\.travis\.yml$
 ^\.httr-oauth$
-tests/testthat/.httr-oauth.enc
-.Renviron.enc
+tests/testthat/secrets.tar.enc

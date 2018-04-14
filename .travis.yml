@@ -3,9 +3,7 @@ warnings_are_errors: false
 install:
 - Rscript Installations.R
 before_install:
-- openssl aes-256-cbc -k "1qaz2wsx3edc4rfv" -in tests/testthat/secrets.tar -out tests/testthat/secrets.tar.enc
+- openssl aes-256-cbc -K $encrypted_d1234_key -iv $encrypted_d1234_iv -in tests/testthat/secrets.tar.enc -out tests/testthat/secrets.tar -d
 - tar xvf tests/testthat/secrets.tar
 - mv tests/testthat/.Renviron .Renviron
-env:
-  global:
-    secure: LgirLWH1K6Jkp0yr7GUclVMU95i1YhLDRzYlS226ZqvoZrrUAzuShdofL3Ia0AATxbj2bj/qhQ21ucBwlhLIVmwLribrX70HTN9AMQ+IhYi2S3mQF/DschEvWL+OqK+VxUP1MUvPSoNZIAqq35Rbu9fq/AbBb3xQU3K7Zg9NZfCJtMIMHvcG2+qDJ91VAQnVGi/2Fg8rXK/xI8B9uFzKOa6mE5DBORA8Pz+kzvUS4QPZhoXPkf/TuftpgiUCdXegI9B5WuqlcgrcV7cPtc2vfFjn34xkiJQfaDbMlDCJim4NKEe+aG1Fmcm8E2D6O88N2dXa+dyiXV+GAyGZcwXqZ7zuMOW/ASbZqazfBwAA+LV7bFUlGFCqYJic8bSEDT/TLIiXGDtqUYU6nJv+wgO4fXBSVeAGzW/PahCnzNUBh8JHX4H9UZH05p04G16hzDztkAfvLLuQafr3/uwXi35pTvzIp6A+r0Q1UPDoK21lukf0bkWqsLx62Her4aSVq6YHO/4MfXkTy5YP9eNYBWRu1O3r0PdJn4JEF9U4+hnrLSRxJvODYG4+9yhKnPqEU25UNW27jRj+XqlSQ0sgSjpyjX9O/5pnPvsBYrxUpxNkEpJVIoIHG3jIjMNez2fl/jnJg8Iu7wwgmpNAwRbN0AkkaLUsuQzMKird3tz1N1qdq9Y=
+- cat .Renviron

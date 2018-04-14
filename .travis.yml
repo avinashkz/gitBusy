@@ -4,4 +4,6 @@ install:
 - Rscript Installations.R
 before_install:
 - openssl aes-256-cbc -K $encrypted_48435adfb8bd_key -iv $encrypted_48435adfb8bd_iv
+  -in .Renviron.enc -out .Renviron -d
+- openssl aes-256-cbc -K $encrypted_48435adfb8bd_key -iv $encrypted_48435adfb8bd_iv
   -in tests/testthat/.httr-oauth.enc -out tests/testthat/.httr-oauth -d

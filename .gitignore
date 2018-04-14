@@ -6,3 +6,4 @@
 R/.DS_Store
 inst/doc
 tests/testthat/.httr-oauth
+.Renviron

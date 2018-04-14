@@ -17,7 +17,7 @@ repo_count <- function(id, auth = TRUE, gtoken){
   text <- content(a, "parsed")
 
   if(is.null(text$public_repos)){
-    stop(text)
+    stop(glue('User', id, 'Not Found on GitHub', .sep = " "))
   } else {
     return(text$public_repos)
   }

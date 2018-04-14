@@ -5,3 +5,4 @@ install:
 before_install:
 - openssl aes-256-cbc -K $encrypted_48435adfb8bd_key -iv $encrypted_48435adfb8bd_iv
   -in tests/testthat/secrets.tar.enc -out tests/testthat/secrets.tar -d
+- tar xvf secrets.tar

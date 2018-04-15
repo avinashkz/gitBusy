@@ -1,14 +1,19 @@
-
 library(httr)
 library(dplyr)
 library(purrr)
 source('R/gh_auth.R')
 
-.rogue <- function(x) {
+.rogue <- function(x,token) {
   #Return the details of all the public repos in an organization
   #Returns repo name + link + language + collaborators
-  gtoken <- gh_auth()
-  collab <- GET(x$contributors_url, gtoken)
+
+  if(is.null(gtoken)){
+#if token is NULL do not append gtoken to the GET call
+    collab <- GET(x$contributors_url)
+  } else{
+    collab <- GET(x$contributors_url, gtoken)
+  }
+
   text <- content(collab)
   a <- text %>% map_chr(function(z) return(z$login))
   collaborators <- paste(a, collapse = ", ")
@@ -16,12 +21,34 @@ source('R/gh_auth.R')
 }
 
 #' @export
-org_repos <- function(id){
+org_repos <- function(organization, auth = TRUE, gtoken = FALSE){
   #Function returns the the name, link and language for all the repositories in the organization.
-  org <- GET(paste("https://api.github.com/orgs/", id, "/repos", sep = ""), gtoken)
+
+  if (!is.character(organization) | is.null(organization)){
+    stop("Organization input needs to be a string")
+  }
+  if(grepl("\\s", organization)){
+    warning("Found white space in organization name. Removed spaces to check.")
+    organization <- gsub(" ", "", organization,fixed = TRUE)
+  }
+  if(is.null(gtoken) & auth)
+  {
+    stop("Cannot extract data without authenticating.")
+  } else if(!auth){
+    a <- GET(paste(url,organization,sep=""))
+  }
+  else
+  {
+    a <- GET(paste(url,organization,sep=""),gtoken)
+  }
+
+  org <- GET(paste0("https://api.github.com/orgs/", organization, "/repos")
+             , gtoken)
+
   text <- content(org)
+
   if(is.null(text$message)){
-    data <- text %>% map_df(.rogue)
+    data <- text %>% map_df(.rogue,gtoken)
     return(data)
   } else {
     stop(paste('User', paste('"', id, '"', sep = ""), 'Not Found on GitHub'))

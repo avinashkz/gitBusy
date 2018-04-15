@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
-library(httr)
-library(gitBusy)
+suppressPackageStartupMessages(library(httr))
+suppressPackageStartupMessages(library(gitBusy))
 ```
 In this package - gitBusy - we provide an API wrapper for Github. It allows the user to obtain a list of Github organizations and their respective members, as well as the open repositories under each user, and the coding language they prefer to work in. Why is this useful? This package allows users to quickly access and analyze Github's vast network of organizations, users, and repositories.
 

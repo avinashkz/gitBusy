@@ -10,3 +10,4 @@ tests/testthat/.Renviron
 tests/testthat/secrets.tar
 .Renviron
 .httr-oauth
+vignettes/.httr-oauth

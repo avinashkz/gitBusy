@@ -17,38 +17,44 @@ knitr::opts_chunk$set(
 ```
 
 ```{r}
+library(httr)
 library(gitBusy)
 ```
 In this package - gitBusy - we provide an API wrapper for Github. It allows the user to obtain a list of Github organizations and their respective members, as well as the open repositories under each user, and the coding language they prefer to work in. Why is this useful? This package allows users to quickly access and analyze Github's vast network of organizations, users, and repositories.
 
 ## Example of Use:
 
-To obtain the list of all repositories, with their respective links and language, you can execute the following function:
+Create the token using Key and Secret obtained from GitHub.com as shown in the code below:
 
 ```{r}
-organization_name = "UBC-MDS"
+token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
+```
 
-org_repos(organization_name,  auth = T, gtoken = F)
+
+```{r}
+organization_name <- "UBC-MDS"
+
+org_repos(organization_name, auth = T, token)
 ```
 If you are interested in the public users and their most commonly used language, you can run the follow code to return a dataframe:
 
 ```{r}
-organization_members(organization_name, auth = F, gtoken = NULL)
+organization_members(organization_name, auth = T, token)
 ```
 
 Our package also allows you to return the number of public repositories for a given ID, with the following function:
 
 ```{r}
-user = "the_NASH"
-
-repo_count(user, auth = T, gtoken = F)
+user_name <- "sarora"
+repo_count(user_name, auth = T, token)
 ```
 
 Finally, you may generate a dataframe of a particular user's language preferences in Github.
 
 ```{r}
-id = "the_NASH"
+id <-  "Ivan-Despot"
 
-user_preferences(id, gtoken)
+user_preferences(id, token)
 ```
+
 

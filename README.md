@@ -1,6 +1,8 @@
 # gitBusy
 Github API Wrapper
 
+[![Build Status](https://travis-ci.org/UBC-MDS/gitBusy.svg?branch=master)](https://travis-ci.org/UBC-MDS/gitBusy)
+
 # Authors:
 
 Abishek Murali

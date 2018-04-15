@@ -2,8 +2,7 @@
 title: "gitBusy API Wrapper in R"
 author: "Abishek Murali, Avinash Prabhakaran, Sid Arora, Ivan Despot"
 date: "`r Sys.Date()`"
-output: 
-  github_document: default
+output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette Title}
   %\VignetteEngine{knitr::rmarkdown}

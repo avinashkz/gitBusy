@@ -1,6 +1,6 @@
 ---
-title: "Vignette Title"
-author: "Vignette Author"
+title: "gitBusy API Wrapper in R"
+author: "Abishek Murali, Avinash Prabhakaran, Sid Arora, Ivan Despot"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -16,50 +16,39 @@ knitr::opts_chunk$set(
 )
 ```
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+```{r}
+library(gitBusy)
+```
+In this package - gitBusy - we provide an API wrapper for Github. It allows the user to obtain a list of Github organizations and their respective members, as well as the open repositories under each user, and the coding language they prefer to work in. Why is this useful? This package allows users to quickly access and analyze Github's vast network of organizations, users, and repositories.
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+## Example of Use:
 
-## Vignette Info
+To obtain the list of all repositories, with their respective links and language, you can execute the following function:
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+```{r}
+organization_name = "UBC-MDS"
 
-## Styles
+org_repos(organization_name,  auth = T, gtoken = F)
+```
+If you are interested in the public users and their most commonly used language, you can run the follow code to return a dataframe:
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+```{r}
+organization_members(organization_name, auth = F, gtoken = NULL)
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+Our package also allows you to return the number of public repositories for a given ID, with the following function:
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+```{r}
+user = "the_NASH"
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+repo_count(user, auth = T, gtoken = F)
 ```
 
-Also a quote using `>`:
+Finally, you may generate a dataframe of a particular user's language preferences in Github.
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+```{r}
+id = "the_NASH"
+
+user_preferences(id, gtoken)
+```
+

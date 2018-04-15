@@ -5,11 +5,14 @@ library(forcats)
 source('R/gh_auth.R')
 
 #' @export
-user_preferences <- function(id){
+user_preferences <- function(id,gtoken){
   #The function reads in the ID of a user and returns the a dataframe and ggplot item of the languages used by the user.
-  gtoken <- gh_auth()
   url <- 'https://api.github.com/users/'
-  a <- GET(paste(url,id,"/repos", sep=""), gtoken)
+  if(is.null(gtoken)){
+    a <- GET(paste0(url,id,"/repos"))
+  } else{
+    a <- GET(paste0(url,id,"/repos"), gtoken)
+  }
   text <- content(a)
   my_repo <- map_df(text,
                     function(q) return(bind_cols(name = q$name, language = q$language)))

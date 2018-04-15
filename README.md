@@ -13,7 +13,24 @@ Avinash Prabhakaran
 
 # Project Summary
 
+The goal of this project was to create a user-friendly and intuitive API wrapper for Github. The **gitBusy** package allows users to efficiently retrieve information on organizations, users, and repositories from the Github website.
+
+This project is part of the DSCI 525 Web and Cloud Computing Course for the Masters of Data Science program at the University of British Columbia.
+
 # Functions
+
+* `organization_members(organization)`
+  * Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.
+
+* `org_repos(organization)`
+  * Function returns the the name, link and language for all the repositories in the organization.
+
+* `repo_count(user)`
+  * Return the number of Pulic Repositories for an ID
+
+* `user_preferences(user)`
+  * The function reads in the ID of a user and returns the a dataframe and ggplot item of the languages used by the user.
+
 
 # Installation / Uninstallation and Execution
 

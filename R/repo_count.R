@@ -3,8 +3,20 @@ library(glue)
 source('R/gh_auth.R')
 
 #' @export
+
+#' Get the number of Pulic Repositories for an ID
+#'
+#' @param user id whose public repos we want
+#' @auth optional argument if authentication needed or not
+#' @param gtoken optional argument - user authentication done using gh_auth.
+#' @return Returns a number of Public Repos for an ID.
+#'
+#'
+#' @examples
+#' organization_members("UBC-MDS", TRUE)
+#'
+
 repo_count <- function(user, auth = TRUE, gtoken = FALSE){
-  #Return the number of Pulic Repositories for an ID
 
   url <- 'https://api.github.com/users/'
 

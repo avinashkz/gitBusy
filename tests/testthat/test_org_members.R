@@ -1,5 +1,4 @@
 context('gitBusy.R')
-
 library(gitBusy)
 library(testthat)
 library(stringr)

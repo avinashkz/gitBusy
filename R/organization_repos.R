@@ -21,8 +21,19 @@ source('R/gh_auth.R')
 }
 
 #' @export
+
+#' Get name, link and language for all the repositories in the organization.
+#'
+#' @param organization of interest on GitHub
+#' @param gtoken currency symbol as a reference base 1, for example "USD"
+#' @return the names link and language for all the repositories in the organization
+#'
+#'
+#' @examples
+#' organization_members("UBC-MDS", TRUE,token)
+#'
+
 org_repos <- function(organization, auth = TRUE, gtoken = FALSE){
-  #Function returns the the name, link and language for all the repositories in the organization.
 
   if (!is.character(organization) | is.null(organization)){
     stop("Organization input needs to be a string")

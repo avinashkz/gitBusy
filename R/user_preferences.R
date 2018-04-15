@@ -5,15 +5,41 @@ library(forcats)
 source('R/gh_auth.R')
 
 #' @export
-user_preferences <- function(id,gtoken){
-  #The function reads in the ID of a user and returns the a dataframe and ggplot item of the languages used by the user.
+
+#' Get programming languages used/forked by a user on Github.
+#'
+#' @param id username of the GitHub user
+#' @param gtoken optional argument - user authentication done using gh_auth.
+#' @return a list of: dataframe and ggplot item for the languages used by the user.
+#'
+#'
+#' @examples
+#' user_preferences('sarora','') or user_preferences('sarora')
+#'
+
+
+
+user_preferences <- function(id,gtoken=NULL){
+  #The
   url <- 'https://api.github.com/users/'
+
+ if (!is.character(id) | is.null(id)){
+    stop("GitHub user Id needs to be a string")
+  }
+
   if(is.null(gtoken)){
     a <- GET(paste0(url,id,"/repos"))
   } else{
     a <- GET(paste0(url,id,"/repos"), gtoken)
   }
+
+
   text <- content(a)
+
+  if(!is.null(text$message)){
+    stop(paste('User', paste('"', id, '"', sep = ""), 'Not Found on GitHub'))
+  }
+
   my_repo <- map_df(text,
                     function(q) return(bind_cols(name = q$name, language = q$language)))
   lang_agg <- my_repo %>% group_by(language) %>%

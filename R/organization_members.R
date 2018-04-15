@@ -6,6 +6,20 @@ source('R/gh_auth.R')
 
 
 #' @export
+
+#' Get programming languages used/forked by a user on Github.
+#'
+#' @param organization of the interest
+#' @auth optional argument if authentication needed or not
+#' @param gtoken optional argument - user authentication done using gh_auth.
+#' @return Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.
+#'
+#'
+#' @examples
+#' organization_members("UBC-MDS", TRUE)
+#'
+
+#' @export
 organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
   #Reads in the Organization name on GitHub
   #Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.

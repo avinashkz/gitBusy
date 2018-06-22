@@ -8,3 +8,6 @@ inst/doc
 tests/testthat/.httr-oauth
 tests/testthat/.Renviron
 tests/testthat/secrets.tar
+.Renviron
+.httr-oauth
+vignettes/.httr-oauth

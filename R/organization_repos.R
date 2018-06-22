@@ -1,14 +1,19 @@
-
 library(httr)
 library(dplyr)
 library(purrr)
 source('R/gh_auth.R')
 
-.rogue <- function(x) {
+.rogue <- function(x, gtoken = NULL) {
   #Return the details of all the public repos in an organization
   #Returns repo name + link + language + collaborators
-  gtoken <- gh_auth()
-  collab <- GET(x$contributors_url, gtoken)
+
+  if(is.null(gtoken)){
+    #if token is NULL do not append gtoken to the GET call
+    collab <- GET(x$contributors_url)
+  } else{
+    collab <- GET(x$contributors_url, gtoken)
+  }
+
   text <- content(collab)
   a <- text %>% map_chr(function(z) return(z$login))
   collaborators <- paste(a, collapse = ", ")
@@ -16,14 +21,47 @@ source('R/gh_auth.R')
 }
 
 #' @export
-org_repos <- function(id){
-  #Function returns the the name, link and language for all the repositories in the organization.
-  org <- GET(paste("https://api.github.com/orgs/", id, "/repos", sep = ""), gtoken)
+
+#' Get name, link and language for all the repositories in the organization.
+#'
+#' @param organization of interest on GitHub
+#' @param gtoken currency symbol as a reference base 1, for example "USD"
+#' @return the names link and language for all the repositories in the organization
+#'
+#'
+#' @examples
+#' organization_members("UBC-MDS", TRUE,token)
+#'
+
+org_repos <- function(organization, auth = TRUE, gtoken = NULL){
+
+  url <- "https://api.github.com/orgs/"
+
+  if (!is.character(organization) | is.null(organization)){
+    stop("Organization input needs to be a string")
+  }
+  if(grepl("\\s", organization)){
+    warning("Found white space in organization name. Removed spaces to check.")
+    organization <- gsub(" ", "", organization,fixed = TRUE)
+  }
+  if(is.null(gtoken) & auth)
+  {
+    stop("Cannot extract data without authenticating.")
+  } else if(!auth){
+    print(paste0(url, organization, "/repos"))
+    org <- GET(paste0(url, organization, "/repos"))
+  }
+  else
+  {
+    org <- GET(paste0(url, organization, "/repos"),gtoken)
+  }
+
   text <- content(org)
+
   if(is.null(text$message)){
-    data <- text %>% map_df(.rogue)
+    data <- text %>% map_df(.rogue, gtoken)
     return(data)
   } else {
-    stop(paste('User', paste('"', id, '"', sep = ""), 'Not Found on GitHub'))
+    stop(paste('Organization', paste0('"', organization, '"'), 'Not Found on GitHub'))
   }
 }

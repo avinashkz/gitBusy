@@ -5,6 +5,7 @@ library(httr)
 library(glue)
 
 token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
+
 #check error message
 test_that("check if the error message is correct",{
   #saveRDS(token, file = "github_token.rds")

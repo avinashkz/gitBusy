@@ -1,11 +1,7 @@
 # gitBusy
 Github API Wrapper
 
-<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/avinashkz/gitBusy.svg?branch=master)](https://travis-ci.org/avinashkz/gitBusy)
-=======
-[![Build Status](https://travis-ci.org/UBC-MDS/gitBusy.svg?branch=master)](https://travis-ci.org/UBC-MDS/gitBusy)
->>>>>>> upstream/master
 
 # Authors:
 

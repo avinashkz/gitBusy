@@ -33,6 +33,6 @@ test_that("Check if output is valid",{
   expect_true(is.data.frame(output))
 
   #Without authentication
-  output <- org_repos(org)
-  expect_true(is.data.frame(output))
+  #output <- org_repos(org)
+  #expect_true(is.data.frame(output))
 })

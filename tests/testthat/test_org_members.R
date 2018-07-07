@@ -31,6 +31,6 @@ test_that("Check if output is valid",{
   #With authentication
   expect_is(organization_members(org, TRUE,token), "list")
   #Without authentication
-  expect_is(organization_members(org), "list")
+  #expect_is(organization_members(org), "list")
 
 })

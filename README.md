@@ -2,6 +2,7 @@
 
 
 [![Build Status](https://travis-ci.org/avinashkz/gitBusy.svg?branch=master)](https://travis-ci.org/avinashkz/gitBusy)
+[![codecov](https://codecov.io/gh/avinashkz/gitBusy/branch/master/graph/badge.svg)](https://codecov.io/gh/avinashkz/gitBusy)
 
 **gitBusy** is a user-friendly and intuitive API wrapper for Github. The package allows users to efficiently retrieve information on organizations, users, and repositories from the Github website.
 

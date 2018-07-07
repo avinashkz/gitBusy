@@ -3,7 +3,7 @@ warnings_are_errors: false
 install:
 - Rscript Installations.R
 before_install:
-- openssl aes-256-cbc -K $encrypted_d1234_key -iv $encrypted_d1234_iv -in tests/testthat/secrets.tar.enc -out tests/testthat/secrets.tar -d
+- openssl aes-256-cbc -K $encrypted_48435adfb8bd_key -iv $encrypted_48435adfb8bd_iv -in secrets.tar.enc -out tests/testthat/secrets.tar -d
 - tar xvf tests/testthat/secrets.tar
 - mv tests/testthat/.Renviron .Renviron
 - cp tests/testthat/.httr-oauth vignettes/.httr-oauth

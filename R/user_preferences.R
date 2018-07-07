@@ -2,21 +2,24 @@ library(dplyr)
 library(purrr)
 library(ggplot2)
 library(forcats)
-source('R/gh_auth.R')
-
-#' @export
+context('R/gh_auth.R')
 
 #' Get programming languages used/forked by a user on Github.
 #'
+#' @description
+#' Returns the user's language preferences
+#'
 #' @param id username of the GitHub user
+#'
 #' @param gtoken optional argument - user authentication done using gh_auth.
+#'
 #' @return a list of: dataframe and ggplot item for the languages used by the user.
 #'
 #'
 #' @examples
 #' user_preferences('sarora','') or user_preferences('sarora')
 #'
-
+#' @export
 
 
 user_preferences <- function(id,gtoken=NULL){

@@ -20,4 +20,5 @@ install.packages("glue")
 install.packages("knitr")
 install.packages("testthat")
 install.packages("rmarkdown")
+install.packages("covr")
 

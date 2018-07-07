@@ -41,12 +41,16 @@ Then, in _Rstudio_ console:
 1. Load the package functions into the environment using `devtools::load_all()`
 2. Run the tests using: `devtools::test()`
 
-## Authors:
+## Vignette
 
-Abishek Murali @abimur-123
+For a comprehensive guide of gitBusy, you can read the vignette [here](vignettes/gitBusy.Rmd)
 
-Sid Arora @sarora
+## Contributors:
 
-Ivan Despot @Ivan-Despot
+Abishek Murali [@abimur-123](https://github.com/abimur-123)
 
-Avinash Prabhakaran @avinashkz
+Sid Arora [@sarora](https://github.com/sarora)
+
+Ivan Despot [@Ivan-Despot](https://github.com/Ivan-Despot)
+
+Avinash Prabhakaran [@avinashkz](https://github.com/avinashkz)

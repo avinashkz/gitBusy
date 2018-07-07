@@ -22,7 +22,7 @@ context('R/gh_auth.R')
 #'
 #' @export
 #'
-repo_count <- function(user, auth = TRUE, gtoken = FALSE){
+repo_count <- function(user, auth = FALSE, gtoken = NULL){
 
   url <- 'https://api.github.com/users/'
 
@@ -30,8 +30,8 @@ repo_count <- function(user, auth = TRUE, gtoken = FALSE){
     stop("User input needs to be a string")
   }
   if(grepl("\\s", user)){
-    warning("Found white space in organization name. Removed spaces to check.")
-    User <- gsub(" ", "", User,fixed = TRUE)
+    warning("Found white space in username. Removed spaces to check.")
+    user <- gsub(" ", "", user,fixed = TRUE)
   }
   if(is.null(gtoken) & auth)
   {

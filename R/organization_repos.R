@@ -23,7 +23,7 @@ context('R/gh_auth.R')
 #'
 #' @export
 #'
-org_repos <- function(organization, auth = TRUE, gtoken = NULL){
+org_repos <- function(organization, auth = FALSE, gtoken = NULL){
 
   url <- "https://api.github.com/orgs/"
 

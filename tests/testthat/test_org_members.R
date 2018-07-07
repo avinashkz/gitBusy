@@ -8,7 +8,7 @@ test_that("check if input is in correct format",{
 
   expect_error(organization_members(NULL), "Organization input needs to be a string")
   expect_error(organization_members(1234), "Organization input needs to be a string")
-  # expect_error(organization_members(organization = "UBC-MDS"), "Cannot extract data without authenticating.")
+  expect_error(organization_members(organization = "UBC-MDS", auth = TRUE), "Cannot extract data without authenticating.")
   token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
 
   organization <- "UBC -MDS"
@@ -28,6 +28,9 @@ test_that("Check if output is valid",{
   token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
   org <- "UBC-MDS"
 
+  #With authentication
   expect_is(organization_members(org, TRUE,token), "list")
+  #Without authentication
+  expect_is(organization_members(org), "list")
 
 })

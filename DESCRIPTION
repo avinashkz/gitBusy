@@ -12,10 +12,8 @@ Depends: R (>= 3.4.3), httpuv, httr, dplyr, purrr, ggplot2, forcats, glue
 License: MIT
 Encoding: UTF-8
 LazyData: true
-Suggests: 
-    testthat,
-    knitr,
-    rmarkdown,
-    covr
+Suggests: testthat, 
+	knitr, 
+	rmarkdown
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr

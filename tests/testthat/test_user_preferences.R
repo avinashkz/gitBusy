@@ -1,4 +1,7 @@
 context('user_preferences.R')
+library(testthat)
+library(httr)
+library(glue)
 
 test_that("check if input is in correct format",{
 

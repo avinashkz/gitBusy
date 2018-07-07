@@ -1,29 +1,25 @@
 library(httr)
 library(dplyr)
 library(purrr)
-library(testthat)
 source('R/user_preferences.R')
 source('R/gh_auth.R')
 
+
+#' @export
+
 #' Get programming languages used/forked by a user on Github.
 #'
-#' @description
-#' The function returns a list of all the public user in an Organization
-#'
 #' @param organization of the interest
-#'
-#' @param auth optional argument if authentication needed or not
-#'
+#' @auth optional argument if authentication needed or not
 #' @param gtoken optional argument - user authentication done using gh_auth.
-#'
 #' @return Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.
 #'
 #'
 #' @examples
 #' organization_members("UBC-MDS", TRUE)
 #'
+
 #' @export
-#'
 organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
   #Reads in the Organization name on GitHub
   #Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.
@@ -42,11 +38,11 @@ organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
   {
     stop("Cannot extract data without authenticating.")
   } else if(!auth){
-    a <- GET(paste0(url,organization))
+    a <- GET(paste(url,organization,sep=""))
   }
   else
   {
-    a <- GET(paste0(url,organization),gtoken)
+    a <- GET(paste(url,organization,sep=""),gtoken)
   }
 
   data <- GET(paste0(url,
@@ -60,6 +56,6 @@ organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
     names(complete_users) <- user_ids
     return(complete_users)
   } else {
-    stop(paste('Organization', paste0('"', organization, '"'), 'Not Found on GitHub'))
+    stop(paste('Organization', paste('"', organization, '"', sep = ""), 'Not Found on GitHub'))
   }
 }

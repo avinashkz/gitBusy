@@ -1,26 +1,8 @@
 library(httr)
 library(dplyr)
 library(purrr)
-library(testthat)
 source('R/gh_auth.R')
 
-#' Get name, link and language for all the repositories in the organization.
-#'
-#' @description
-#' The function returns the details of the given repository.
-#'
-#' @param x Repository name
-#'
-#' @param gtoken optional argument - user authentication done using gh_auth.
-#'
-#' @return the names, link and language for the given repository
-#'
-#'
-#' @examples
-#' .rogue(organization = gitBusy", gtoken = token)
-#'
-#' @export
-#'
 .rogue <- function(x, gtoken = NULL) {
   #Return the details of all the public repos in an organization
   #Returns repo name + link + language + collaborators
@@ -38,31 +20,22 @@ source('R/gh_auth.R')
   return(bind_cols(name  = x$name, link = x$html_url, language = x$language, collaborators = collaborators))
 }
 
+#' @export
 
 #' Get name, link and language for all the repositories in the organization.
 #'
-#' @description
-#' The function returns the name, link and language used for all the repositories in the organization.
-#'
 #' @param organization of interest on GitHub
-#'
-#' @param auth optional argument if authentication needed or not
-#'
-#' @param gtoken optional argument - user authentication done using gh_auth.
-#'
+#' @param gtoken currency symbol as a reference base 1, for example "USD"
 #' @return the names link and language for all the repositories in the organization
 #'
 #'
 #' @examples
-#' organization_members(organization = "UBC-MDS", auth = TRUE, gtoken = token)
+#' organization_members("UBC-MDS", TRUE,token)
 #'
-#' @export
-#'
-org_repos <- function(organization, auth = FALSE, gtoken = NULL){
+
+org_repos <- function(organization, auth = TRUE, gtoken = NULL){
 
   url <- "https://api.github.com/orgs/"
-
-
 
   if (!is.character(organization) | is.null(organization)){
     stop("Organization input needs to be a string")

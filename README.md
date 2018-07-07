@@ -1,14 +1,25 @@
-# gitBusy <img src="man/figures/logo.png" align="right"/>
-
+# gitBusy
+Github API Wrapper
 
 [![Build Status](https://travis-ci.org/avinashkz/gitBusy.svg?branch=master)](https://travis-ci.org/avinashkz/gitBusy)
-[![codecov](https://codecov.io/gh/avinashkz/gitBusy/branch/master/graph/badge.svg)](https://codecov.io/gh/avinashkz/gitBusy)
 
-**gitBusy** is a user-friendly and intuitive API wrapper for Github. The package allows users to efficiently retrieve information on organizations, users, and repositories from the Github website.
+# Authors:
 
-This project is part of the DSCI 525 Web and Cloud Computing Course for the Masters of Data Science program at The University of British Columbia.
+Abishek Murali
 
-## Functions
+Sid Arora
+
+Ivan Despot
+
+Avinash Prabhakaran
+
+# Project Summary
+
+The goal of this project was to create a user-friendly and intuitive API wrapper for Github. The **gitBusy** package allows users to efficiently retrieve information on organizations, users, and repositories from the Github website.
+
+This project is part of the DSCI 525 Web and Cloud Computing Course for the Masters of Data Science program at the University of British Columbia.
+
+# Functions
 
 * `organization_members(organization)`
   * Returns a list of all the public users with their most commonly used languages in a dataframe and as a ggplot item.
@@ -23,7 +34,7 @@ This project is part of the DSCI 525 Web and Cloud Computing Course for the Mast
   * The function reads in the ID of a user and returns the a dataframe and ggplot item of the languages used by the user.
 
 
-## Installation / Uninstallation and Execution
+# Installation / Uninstallation and Execution
 
 To install this package, run the following command in the console for RStudio:
 
@@ -35,23 +46,9 @@ To perform a clean removal of the packages, run
 
 `remove.packages('gitBusy')`
 
-## Running Tests
+# Running Tests
 To run the tests for this package, download and change directory to the repository.
 Then, in _Rstudio_ console:
 
 1. Load the package functions into the environment using `devtools::load_all()`
 2. Run the tests using: `devtools::test()`
-
-## Vignette
-
-For a comprehensive guide of gitBusy, you can read the vignette [here](vignettes/gitBusy.Rmd)
-
-## Contributors:
-
-Abishek Murali [@abimur-123](https://github.com/abimur-123)
-
-Sid Arora [@sarora](https://github.com/sarora)
-
-Ivan Despot [@Ivan-Despot](https://github.com/Ivan-Despot)
-
-Avinash Prabhakaran [@avinashkz](https://github.com/avinashkz)

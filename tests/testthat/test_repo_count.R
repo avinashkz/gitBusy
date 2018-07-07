@@ -1,9 +1,6 @@
 context('repo_count.R')
 context('get_auth.R')
 
-library(httr)
-library(glue)
-
 token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
 
 #check error message

@@ -1,5 +1,4 @@
 context('organization_repos.R')
-library(testthat)
 library(stringr)
 
 # Same test functions for both Org_repos and Org_members

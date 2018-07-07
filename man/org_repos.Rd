@@ -4,7 +4,7 @@
 \alias{org_repos}
 \title{Get name, link and language for all the repositories in the organization.}
 \usage{
-org_repos(organization, auth = TRUE, gtoken = NULL)
+org_repos(organization, auth = FALSE, gtoken = NULL)
 }
 \arguments{
 \item{organization}{of interest on GitHub}

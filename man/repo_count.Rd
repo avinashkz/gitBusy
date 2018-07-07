@@ -4,7 +4,7 @@
 \alias{repo_count}
 \title{Get the number of Pulic Repositories for an ID}
 \usage{
-repo_count(user, auth = TRUE, gtoken = FALSE)
+repo_count(user, auth = FALSE, gtoken = NULL)
 }
 \arguments{
 \item{user}{GitHub user ID for the target user.}

@@ -1,5 +1,6 @@
 library(httr)
 library(glue)
+library(testthat)
 context('R/gh_auth.R')
 
 #' Get the number of Pulic Repositories for an ID

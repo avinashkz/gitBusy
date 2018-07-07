@@ -2,6 +2,7 @@ library(dplyr)
 library(purrr)
 library(ggplot2)
 library(forcats)
+library(testthat)
 context('R/gh_auth.R')
 
 #' Get programming languages used/forked by a user on Github.

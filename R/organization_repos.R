@@ -1,6 +1,7 @@
 library(httr)
 library(dplyr)
 library(purrr)
+library(testthat)
 context('R/gh_auth.R')
 
 .rogue <- function(x, gtoken = NULL) {

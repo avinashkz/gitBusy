@@ -1,6 +1,7 @@
 library(httr)
 library(dplyr)
 library(purrr)
+library(testthat)
 context('R/user_preferences.R')
 context('R/gh_auth.R')
 

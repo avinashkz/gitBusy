@@ -27,7 +27,9 @@ In this package - gitBusy - we provide an API wrapper for Github. It allows the 
 Create the token using Key and Secret obtained from GitHub.com as shown in the code below:
 
 ```{r}
-token <- gh_auth(Sys.getenv("KEY"), Sys.getenv("SECRET"))
+key <- as.character(Sys.getenv("KEY"))
+secret <- as.character(Sys.getenv("SECRET"))
+token <- gh_auth(key, secret)
 ```
 
 
@@ -55,5 +57,3 @@ Finally, you may generate a dataframe of a particular user's language preference
 id <-  "Ivan-Despot"
 user_preferences(id, token)
 ```
-
-

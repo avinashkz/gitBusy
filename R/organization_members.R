@@ -2,8 +2,8 @@ library(httr)
 library(dplyr)
 library(purrr)
 library(testthat)
-context('R/user_preferences.R')
-context('R/gh_auth.R')
+source('R/user_preferences.R')
+source('R/gh_auth.R')
 
 #' Get programming languages used/forked by a user on Github.
 #'

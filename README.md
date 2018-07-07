@@ -1,5 +1,5 @@
-# gitBusy <img src="man/figures/gitBusy.png" align="right"/>
-Github API Wrapper
+# gitBusy <img src="man/figures/logo.png" align="right"/>
+
 
 [![Build Status](https://travis-ci.org/avinashkz/gitBusy.svg?branch=master)](https://travis-ci.org/avinashkz/gitBusy)
 
@@ -7,7 +7,7 @@ Github API Wrapper
 
 The goal of this project was to create a user-friendly and intuitive API wrapper for Github. The **gitBusy** package allows users to efficiently retrieve information on organizations, users, and repositories from the Github website.
 
-This project is part of the DSCI 525 Web and Cloud Computing Course for the Masters of Data Science program at the University of British Columbia.
+This project is part of the DSCI 525 Web and Cloud Computing Course for the Masters of Data Science program at The University of British Columbia.
 
 ## Functions
 

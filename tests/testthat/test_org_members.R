@@ -1,5 +1,4 @@
-context('gitBusy.R')
-library(gitBusy)
+context('organization_members.R')
 library(testthat)
 library(stringr)
 

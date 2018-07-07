@@ -42,11 +42,11 @@ organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
   {
     stop("Cannot extract data without authenticating.")
   } else if(!auth){
-    a <- GET(paste(url,organization,sep=""))
+    a <- GET(paste0(url,organization))
   }
   else
   {
-    a <- GET(paste(url,organization,sep=""),gtoken)
+    a <- GET(paste0(url,organization),gtoken)
   }
 
   data <- GET(paste0(url,
@@ -60,6 +60,6 @@ organization_members <- function(organization, auth = FALSE ,gtoken = NULL){
     names(complete_users) <- user_ids
     return(complete_users)
   } else {
-    stop(paste('Organization', paste('"', organization, '"', sep = ""), 'Not Found on GitHub'))
+    stop(paste('Organization', paste0('"', organization, '"'), 'Not Found on GitHub'))
   }
 }

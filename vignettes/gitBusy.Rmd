@@ -53,7 +53,6 @@ Finally, you may generate a dataframe of a particular user's language preference
 
 ```{r}
 id <-  "Ivan-Despot"
-
 user_preferences(id, token)
 ```
 

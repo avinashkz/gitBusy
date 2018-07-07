@@ -3,3 +3,4 @@
 ^\.travis\.yml$
 ^\.httr-oauth$
 tests/testthat/secrets.tar.enc
+^codecov\.yml$

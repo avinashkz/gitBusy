@@ -15,7 +15,7 @@ test_that("check if the error message is correct",{
 
 #check valid output
 test_that('the output has two elements only',{
-  expect_equal(repo_count("avinashkz", TRUE, token),33)
+  expect_equal(repo_count("avinashkz", TRUE, token),36)
 })
 
 test_that("Check if output is valid",{
